@@ -2,20 +2,75 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06182b">
-<title>THE IRON ROD — MASTERCORE PROCESSOR v3</title>
+<title>THE IRON ROD — MASTERCORE PROCESSOR v4</title>
 <style>
 :root{color-scheme:dark;--bg:#061321;--panel:#0a2038;--line:#168bd7;--text:#eaf4ff;--muted:#a9c0d8;--blue:#087fff;--green:#00c99a;--amber:#ffbd43;--red:#ff5368}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#04101e,#061b31 55%,#03101d);color:var(--text);font:14px/1.45 system-ui,Arial,sans-serif}header{padding:18px 22px;background:#04182b;border-bottom:2px solid var(--line)}h1{margin:0;font-size:clamp(21px,3vw,32px)}header p,.muted{color:var(--muted)}header p{margin:4px 0 0}.wrap{max-width:1400px;margin:auto;padding:14px}.nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}.nav button,button{cursor:pointer;border:1px solid #3b83b3;border-radius:6px;padding:9px 12px;background:#123657;color:white;font:inherit}.nav button.active,button.primary{background:var(--blue);border-color:#64c0ff}.danger{background:#7d1e32;border-color:#ef6176}.panel{background:#081e34;border:1px solid var(--line);border-radius:8px;margin-bottom:12px;overflow:hidden}.panel h2{font-size:16px;margin:0;padding:9px 12px;background:#092848;border-bottom:1px solid #147db7}.body{padding:12px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.stat{border:1px solid #168bd7;border-radius:7px;padding:10px}.stat strong{font-size:24px;display:block}.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}label{display:block;color:#b9d8f5;margin:8px 0 4px}input,select,textarea{width:100%;padding:9px;background:#04172a;color:var(--text);border:1px solid #38739c;border-radius:6px;font:inherit}textarea{min-height:100px;resize:vertical}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.tablewrap{overflow:auto;max-height:65vh}table{border-collapse:collapse;width:100%;min-width:800px;font-size:12px}td,th{padding:6px 7px;border:1px solid #1b4668;text-align:left}th{background:#0a2d4f;position:sticky;top:0}tr:nth-child(even){background:#0b2138}.badge{display:inline-block;border-radius:12px;padding:2px 7px;font-weight:700;font-size:11px;background:#244e77}.P{background:#244e77}.W{background:#785117}.E{background:#135b81}.V{background:#075d4d}.F{background:#34517a}.D{background:#08774f}.H{background:#802438}.X{background:#5e3b78}.G1{background:#1a6b1a}.G2{background:#1a4a8b}.G3{background:#8b6a1a}.G4{background:#8b1a1a}.G5{background:#5e3b78}.Fact{background:#08774f}.Belief{background:#7d1e32}.small{font-size:12px}.notice{padding:9px;border-left:4px solid var(--amber);background:#35280d;color:#ffedbd;margin:8px 0}.hidden{display:none!important}.foot{padding:12px 20px;border-top:1px solid #1d5077;color:var(--muted)}.e0lock{border:2px solid var(--red);background:rgba(255,83,104,0.05);border-radius:8px;padding:15px;margin-bottom:12px}.e0lock h2{color:var(--red);border-bottom:none;background:none;padding:0;margin:0 0 10px}@media(max-width:750px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}.wrap{padding:8px}}@media(max-width:420px){.fields{grid-template-columns:1fr}}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#04101e,#061b31 55%,#03101d);color:var(--text);
+  font:14px/1.45 system-ui,Arial,sans-serif;overscroll-behavior:none;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+header{padding:18px 22px;background:#04182b;border-bottom:2px solid var(--line)}
+h1{margin:0;font-size:clamp(21px,3vw,32px)}
+header p,.muted{color:var(--muted)}
+header p{margin:4px 0 0}
+.wrap{max-width:1400px;margin:auto;padding:14px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.nav button,button{cursor:pointer;border:1px solid #3b83b3;border-radius:6px;padding:9px 12px;background:#123657;color:white;font:inherit}
+.nav button.active,button.primary{background:var(--blue);border-color:#64c0ff}
+.danger{background:#7d1e32;border-color:#ef6176}
+.panel{background:#081e34;border:1px solid var(--line);border-radius:8px;margin-bottom:12px;overflow:hidden}
+.panel h2{font-size:16px;margin:0;padding:9px 12px;background:#092848;border-bottom:1px solid #147db7}
+.body{padding:12px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.stat{border:1px solid #168bd7;border-radius:7px;padding:10px}
+.stat strong{font-size:24px;display:block}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+label{display:block;color:#b9d8f5;margin:8px 0 4px}
+input,select,textarea{width:100%;padding:9px;background:#04172a;color:var(--text);border:1px solid #38739c;border-radius:6px;font:inherit}
+textarea{min-height:100px;resize:vertical}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.tablewrap{overflow:auto;max-height:65vh}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:12px}
+td,th{padding:6px 7px;border:1px solid #1b4668;text-align:left;vertical-align:top}
+th{background:#0a2d4f;position:sticky;top:0;z-index:1}
+tr:nth-child(even){background:#0b2138}
+.badge{display:inline-block;border-radius:12px;padding:2px 7px;font-weight:700;font-size:11px;background:#244e77}
+.P{background:#244e77}.W{background:#785117}.E{background:#135b81}.V{background:#075d4d}
+.F{background:#34517a}.D{background:#08774f}.H{background:#802438}.X{background:#5e3b78}
+.A{background:#8b5a1a}
+.G1{background:#1a6b1a}.G2{background:#1a4a8b}.G3{background:#8b6a1a}.G4{background:#8b1a1a}.G5{background:#5e3b78}
+.Fact{background:#08774f}.Belief{background:#7d1e32}
+.human{background:#1a4a8b}.model{background:#8b5a1a}.unknown{background:#555}
+.small{font-size:12px}
+.notice{padding:9px;border-left:4px solid var(--amber);background:#35280d;color:#ffedbd;margin:8px 0}
+.hidden{display:none!important}
+.foot{padding:12px 20px;border-top:1px solid #1d5077;color:var(--muted)}
+.e0lock{border:2px solid var(--red);background:rgba(255,83,104,.05);border-radius:8px;padding:15px;margin-bottom:12px}
+.e0lock h2{color:var(--red);border-bottom:none;background:none;padding:0;margin:0 0 10px}
+.banner{border-radius:8px;padding:10px 14px;margin-bottom:12px;font-weight:600}
+.banner.red{background:#3d0d15;border:1px solid var(--red);color:#ffd5da}
+.banner.amber{background:#35280d;border:1px solid var(--amber);color:#ffedbd}
+.banner ul{margin:6px 0 0;padding-left:20px;font-weight:400}
+.msg{margin-top:8px;padding:8px;border-radius:6px;font-size:13px;white-space:pre-wrap}
+.msg.ok{background:#0b3a2c;color:#9ff0d5}
+.msg.warn{background:#3d2e08;color:#ffe9a8}
+.msg.err{background:#3d0d15;color:#ffc9d0}
+.slot{font-size:10px;color:var(--muted);display:block;margin-top:2px}
+@media(max-width:750px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}.wrap{padding:8px}}
+@media(max-width:420px){.fields{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
-  <h1>THE IRON ROD — MASTERCORE PROCESSOR v3</h1>
-  <p>49 barrels · 120 sections · 5,880 slots · 5 Grades × Fact/Belief</p>
+  <h1>THE IRON ROD — MASTERCORE PROCESSOR v4</h1>
+  <p>49 barrels · 120 sections · 5,880 slots · 5 Grades × Fact/Belief · Constitution <span id="hdrConst">—</span></p>
 </header>
 <div class="wrap">
+<div id="healthBanner"></div>
+<div id="backupBanner"></div>
 <div class="nav">
   <button class="active" data-view="dashboard">Dashboard</button>
   <button data-view="section">Edit Section</button>
@@ -25,8 +80,6 @@
 </div>
 
 <section id="view-dashboard" class="view">
- 
- <!-- E0 LOCK -->
  <div class="e0lock">
    <h2>E0 LOCK — THE 1 MACHINE RULE</h2>
    <p><b>Status:</b> E0 Stipulated. Binding on all tiers, faces, wings, and wheels.</p>
@@ -37,20 +90,21 @@
      <li><b>The Wheels (Mechanism):</b> The movement. No independent spirit; they move only when the People move and the Spirit goes.</li>
    </ul>
    <p><b>The Lock:</b> No mechanism may operate without the voice of the People. No People may speak without the authority of the Throne. If the wheels turn without the wings moving, the machine is broken.</p>
+   <p class="small muted">Enforced in code: the mechanism (<code>origin:'model'</code>) may not set <code>verify:'V'</code>, may not set <code>deliver:'D'</code>, and may not run without a human-issued run record. Verification requires an attestation hash over the attested fields.</p>
  </div>
 
- <div class="panel"><h2>GLOBAL CONTROL</h2><div class="body"><div class="stats" id="stats"></div><p class="notice">Iron Rod Engine Active: Grade 1-5 and Fact/Belief Registers integrated.</p><div class="actions"><button class="primary" id="jumpEdit">Edit a section</button><button id="jumpLedger">Open full ledger</button></div></div></div>
+ <div class="panel"><h2>GLOBAL CONTROL</h2><div class="body"><div class="stats" id="stats"></div><p class="notice">Iron Rod Engine Active: Grade 1-5 and Fact/Belief Registers integrated.</p><div class="actions"><button class="primary" id="jumpEdit">Edit a section</button><button id="jumpLedger">Open full ledger</button><button id="jumpQueue">Review queue (<span id="queueCount">0</span>)</button></div></div></div>
  <div class="grid2">
    <div class="panel"><h2>MASTER INDEX</h2><div class="body"><p><b>Capacity:</b> 49 × 120 = 5,880 base slots.</p><p><b>Identification:</b> B01-S001 through B49-S120.</p><p><b>Hierarchy:</b> Grade (1-5) | Register (F/B) | Sec 1-7 | Sub 1-12</p><p><b>Progress rule:</b> Extraction, verification, filing, and delivery are tracked separately.</p></div></div>
    <div class="panel"><h2>GRADE & REGISTER DISTRIBUTION</h2><div class="body" id="gradeStats"></div></div>
  </div>
- <div class="panel"><h2>RECENTLY UPDATED</h2><div class="tablewrap"><table><thead><tr><th>ID</th><th>Grade</th><th>Register</th><th>Source</th><th>Extract</th><th>Verify</th><th>Notes</th></tr></thead><tbody id="recent"></tbody></table></div></div>
+ <div class="panel"><h2>RECENTLY UPDATED</h2><div class="tablewrap"><table><thead><tr><th>ID</th><th>Grade</th><th>Register</th><th>Source</th><th>Extract</th><th>Verify</th><th>Notes</th><th>Edit</th></tr></thead><tbody id="recent"></tbody></table></div></div>
 </section>
 
 <section id="view-section" class="view hidden"><div class="panel"><h2>SECTION RECORD EDITOR</h2><div class="body">
  <div class="fields"><div><label for="barrel">Barrel</label><select id="barrel"></select></div><div><label for="section">Section</label><select id="section"></select></div><div><label for="source">Source reference</label><input id="source" placeholder="URL, filename, page, or reference"></div></div>
- 
- <div class="fields" style="background:#04172a; padding:10px; border-radius:6px; margin:10px 0; border:1px solid #1b4668;">
+
+ <div class="fields" style="background:#04172a;padding:10px;border-radius:6px;margin:10px 0;border:1px solid #1b4668;">
    <div><label for="grade">Grade (1-5)</label><select id="grade"></select></div>
    <div><label for="register">Register</label><select id="register"></select></div>
    <div><label for="sec7">Section (1-7)</label><select id="sec7"></select></div>
@@ -59,206 +113,622 @@
 
  <label for="extract">Extract / original wording</label><textarea id="extract" placeholder="Paste the extracted material here."></textarea>
  <div class="fields"><div><label for="verify">Verification status</label><select id="verify"></select></div><div><label for="fileStatus">Filing status</label><select id="fileStatus"></select></div><div><label for="deliver">Delivery status</label><select id="deliver"></select></div></div>
+ <label for="verifiedBy">Verified by (required for V)</label><input id="verifiedBy" placeholder="Name of the person attesting to this record">
  <label for="notes">Notes — missing material, duplicates, conflicts, etc.</label><textarea id="notes" placeholder="Record gaps, conflicts, duplicate references, and follow-up needed."></textarea>
- <div class="actions"><button class="primary" id="saveSection">Save section</button><button id="loadSection">Load saved record</button><button id="markExtracted">Mark extracted</button><button id="markVerified">Mark verified</button><button id="markFiled">Mark filed</button><button id="markDelivered">Mark delivered</button></div>
- <p class="muted small">The workflow fields are independent. Grades and Registers assign the record to the Iron Rod architecture.</p><div id="editorMsg"></div>
+
+ <div id="attestBox" class="small" style="margin-top:8px;"></div>
+
+ <div class="actions">
+   <button class="primary" id="saveSection">Save section</button>
+   <button id="loadSection">Load saved record</button>
+   <button id="markExtracted">Mark extracted</button>
+   <button id="markVerified">Mark verified</button>
+   <button id="markFiled">Mark filed</button>
+   <button id="markDelivered">Mark delivered</button>
+   <button class="danger" id="deleteSection">Delete record</button>
+ </div>
+ <p class="muted small">Editing extract, grade, or register on a verified record breaks its attestation and reverts it to Extracted. Delivery requires: verified, attested, source present, no open Hold/Duplicate, matching constitution.</p>
+ <div id="editorMsg" class="msg"></div>
 </div></div></section>
 
 <section id="view-barrels" class="view hidden"><div class="panel"><h2>BARREL INDEX</h2><div class="body"><label for="barrelFilter">Filter barrels</label><select id="barrelFilter"></select><div class="tablewrap"><table><thead><tr><th>Barrel</th><th>Source count</th><th>Extracted</th><th>Verified</th><th>Filed</th><th>Delivered</th><th>Hold</th><th>Open</th></tr></thead><tbody id="barrelRows"></tbody></table></div></div></div></section>
 
-<section id="view-ledger" class="view hidden"><div class="panel"><h2>CONSOLIDATED SECTION LEDGER</h2><div class="body"><div class="fields"><div><label for="ledgerBarrel">Barrel filter</label><select id="ledgerBarrel"></select></div><div><label for="ledgerStatus">Workflow filter</label><select id="ledgerStatus"><option value="ALL">All statuses</option><option>P</option><option>W</option><option>E</option><option>V</option><option>F</option><option>D</option><option>H</option><option>X</option></select></div><div><label for="ledgerSearch">Search</label><input id="ledgerSearch" placeholder="ID, source, notes, text"></div></div><p class="muted small">Showing saved records and untouched pending slots.</p><div class="tablewrap"><table><thead><tr><th>ID</th><th>Grade / Reg</th><th>Source</th><th>Extract</th><th>Verify</th><th>File</th><th>Deliver</th><th>Edit</th></tr></thead><tbody id="ledgerRows"></tbody></table></div><p id="ledgerCount" class="muted small"></p></div></div></section>
+<section id="view-ledger" class="view hidden"><div class="panel"><h2>CONSOLIDATED SECTION LEDGER</h2><div class="body"><div class="fields"><div><label for="ledgerBarrel">Barrel filter</label><select id="ledgerBarrel"></select></div><div><label for="ledgerStatus">Workflow filter</label><select id="ledgerStatus"><option value="ALL">All statuses</option><option>A</option><option>P</option><option>W</option><option>E</option><option>V</option><option>F</option><option>D</option><option>H</option><option>X</option></select></div><div><label for="ledgerSearch">Search</label><input id="ledgerSearch" placeholder="ID, source, notes, text, grade"></div></div><p class="muted small">Showing saved records and untouched pending slots. Filter to <code>A</code> for the machine-review queue.</p><div class="tablewrap"><table><thead><tr><th>ID</th><th>Grade / Reg</th><th>Origin</th><th>Source</th><th>Extract</th><th>Verify</th><th>File</th><th>Deliver</th><th>Edit</th></tr></thead><tbody id="ledgerRows"></tbody></table></div><p id="ledgerCount" class="muted small"></p></div></div></section>
 
-<section id="view-backup" class="view hidden"><div class="panel"><h2>IMPORT / EXPORT</h2><div class="body"><p>Backups contain the saved section records and configuration.</p><div class="actions"><button class="primary" id="exportJson">Export JSON backup</button><button id="exportCsv">Export full 5,880-row CSV ledger</button><label class="primary" style="display:inline-block;padding:9px 12px;border-radius:6px;cursor:pointer">Import JSON backup<input id="importJson" type="file" accept="application/json" hidden></label></div><div id="backupMsg" class="muted"></div></div></div></section>
+<section id="view-backup" class="view hidden"><div class="panel"><h2>IMPORT / EXPORT</h2><div class="body"><p>Backups contain the saved section records and configuration. Export regularly — localStorage can be evicted by the OS.</p><div class="actions"><button class="primary" id="exportJson">Export JSON backup</button><button id="exportCsv">Export full 5,880-row CSV ledger</button><label class="primary" style="display:inline-block;padding:9px 12px;border-radius:6px;cursor:pointer">Import JSON backup<input id="importJson" type="file" accept="application/json" hidden></label></div><div id="backupMsg" class="msg"></div><p class="small muted" id="lastExport"></p></div></div></section>
 </div>
 
-<footer class="foot">MASTERCORE STATUS: Iron Rod Engine Online. 5 Grades × 2 Registers active.</footer>
+<footer class="foot">MASTERCORE STATUS: Iron Rod Engine Online. 5 Grades × 2 Registers active. Constitution <span id="ftrConst">—</span>.</footer>
 
 <script>
 (()=>{
-const KEY='mastercore_processor_v3'; // v3 schema - Iron Rod merge
-const codes=[['P','Pending'],['W','In progress'],['E','Extracted'],['V','Verified'],['F','Filed'],['D','Delivered'],['H','Hold'],['X','Duplicate']];
-const barrels=Array.from({length:49},(_,i)=>'B'+String(i+1).padStart(2,'0'));
-const idOf=(b,s)=>`${b}-S${String(s).padStart(3,'0')}`;
-let db;try{db=JSON.parse(localStorage.getItem(KEY))||{records:{}}}catch(e){db={records:{}}}
-const $=x=>document.getElementById(x), esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+'use strict';
+const KEY='mastercore_processor_v4';
 
-const blank=id=>({id,source:'',extract:'',verify:'P',file:'P',deliver:'P',notes:'',updated:'', grade:'G1', register:'Fact', sec7:'S1', sub12:'Sub1'});
-const get=id=>db.records[id]||blank(id);
-const saved=()=>localStorage.setItem(KEY,JSON.stringify(db));
-const statusSelect=(id,val)=>$(id).innerHTML=codes.map(([c,n])=>`<option value="${c}" ${val===c?'selected':''}>${c} — ${n}</option>`).join('');
+/* ---------- CONSTITUTION (The Throne's Word) ---------- */
+const CONSTITUTION = Object.freeze({
+  ver: 'e0.v1',
+  issued: '2026-10-30',
+  grades: {
+    G1:'Verbatim — checked character-for-character against the source',
+    G2:'Textual fact — what the source plainly states',
+    G3:'Derived — sound inference from stated material',
+    G4:'Interpretive — requires a framework to reach',
+    G5:'Belief — conviction, not derivable from the text'
+  },
+  registers: { Fact:'the source asserts it', Belief:'a conclusion drawn about the source' },
+  lock: [
+    'mechanism may not verify',
+    'mechanism may not deliver',
+    'no run without human issue',
+    'no autonomous schedule'
+  ]
+});
+CONSTITUTION.hash = h(JSON.stringify(CONSTITUTION));
 
-function initSelects(){ 
-  $('barrel').innerHTML=barrels.map(b=>`<option>${b}</option>`).join('');
-  $('barrelFilter').innerHTML='<option value="ALL">All barrels</option>'+barrels.map(b=>`<option>${b}</option>`).join('');
-  $('ledgerBarrel').innerHTML='<option value="ALL">All barrels</option>'+barrels.map(b=>`<option>${b}</option>`).join('');
-  $('section').innerHTML=Array.from({length:120},(_,i)=>`<option value="${i+1}">S${String(i+1).padStart(3,'0')}</option>`).join('');
-  ['verify','fileStatus','deliver'].forEach(id=>statusSelect(id,'P'));
+/* ---------- CODES ---------- */
+const CODE_LABEL = {A:'Machine-drafted',P:'Pending',W:'In progress',E:'Extracted',V:'Verified',
+                    F:'Filed',D:'Delivered',H:'Hold',X:'Duplicate'};
+const VERIFY_LIST  = ['A','P','W','E','V','H','X'];
+const FILE_LIST    = ['P','F','H','X'];
+const DELIVER_LIST = ['P','D','H','X'];
+const GRADES = ['G1','G2','G3','G4','G5'];
+const REGISTERS = ['Fact','Belief'];
 
-  // Iron Rod Selects
-  $('grade').innerHTML=['G1','G2','G3','G4','G5'].map(g=>`<option value="${g}">${g}</option>`).join('');
-  $('register').innerHTML=['Fact','Belief'].map(r=>`<option value="${r}">${r}</option>`).join('');
-  $('sec7').innerHTML=Array.from({length:7},(_,i)=>`<option value="S${i+1}">Section ${i+1}</option>`).join('');
-  $('sub12').innerHTML=Array.from({length:12},(_,i)=>`<option value="Sub${i+1}">Sub-section ${i+1}</option>`).join('');
+/* ---------- HELPERS ---------- */
+const $ = x => document.getElementById(x);
+const esc = x => String(x ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// FNV-1a dual-pass — tamper evidence, not cryptographic security.
+function h(str){
+  let a = 0x811c9dc5, b = 0x01000193;
+  for (let i = 0; i < str.length; i++){
+    const c = str.charCodeAt(i);
+    a ^= c; a = Math.imul(a, 0x01000193);
+    b = Math.imul(b ^ c, 0x85ebca6b);
+  }
+  return ((a>>>0).toString(16).padStart(8,'0')) + ((b>>>0).toString(16).padStart(8,'0'));
 }
 
-function currentId(){return idOf($('barrel').value,Number($('section').value))}
+function attestationHash(r){
+  return h([r.id, r.extract, r.grade, r.register, r.verifiedBy, r.verifiedAt, r.constitutionVer].join('\u0001'));
+}
+
+/* ---------- DB ---------- */
+let db;
+try { db = JSON.parse(localStorage.getItem(KEY)); } catch(e){ db = null; }
+if (!db || typeof db !== 'object') db = {};
+if (!db.records || typeof db.records !== 'object') db.records = {};
+if (!db.meta || typeof db.meta !== 'object') db.meta = { lastExport: null };
+
+const saved = () => {
+  try { localStorage.setItem(KEY, JSON.stringify(db)); return true; }
+  catch(e){ msg('SAVE FAILED: ' + e.message + ' — export a backup immediately.', 'err'); return false; }
+};
+
+/* ---------- RECORD DEFAULTS ---------- */
+const blank = id => ({
+  id,
+  source:'', extract:'', notes:'',
+  verify:'P', file:'P', deliver:'P',
+  grade:'G1', register:'Fact', sec7:'S1', sub12:'Sub1',
+  origin:'human',           // 'human' | 'model' | 'unknown'
+  verifiedBy:'', verifiedAt:'', attestation:'',
+  constitutionVer: CONSTITUTION.ver,
+  constitutionHash: CONSTITUTION.hash,
+  runId:null, model:null, promptVer:null, processedAt:null,
+  updated:''
+});
+
+const get = id => db.records[id] || blank(id);
+
+/* ---------- E0 GUARD ---------- */
+function guard(rec, actor){
+  if (actor === 'model'){
+    if (rec.verifiedBy || rec.attestation)
+      throw new Error('E0: mechanism may not verify.');
+    if (rec.deliver === 'D')
+      throw new Error('E0: mechanism may not deliver.');
+    if (!['A','H'].includes(rec.verify))
+      throw new Error('E0: mechanism may only stage (A) or hold (H).');
+    if (rec.runId && !(db.runs && db.runs[rec.runId] && db.runs[rec.runId].issuedBy))
+      throw new Error('E0: mechanism has no human-issued run record (the Spirit condition).');
+  } else {
+    if (rec.verify === 'V' && !rec.attestation)
+      throw new Error('E0: verification requires an attestation.');
+  }
+  return true;
+}
+
+/* ---------- DELIVERY GATE ---------- */
+function canDeliver(r){
+  return r.verify === 'V'
+      && !!r.attestation
+      && r.constitutionHash === CONSTITUTION.hash
+      && !['H','X'].includes(r.file)
+      && !!(r.source && r.source.trim());
+}
+function deliverReason(r){
+  if (r.verify !== 'V') return 'not verified';
+  if (!r.attestation) return 'no attestation';
+  if (r.constitutionHash !== CONSTITUTION.hash) return 'constitution mismatch (stale)';
+  if (['H','X'].includes(r.file)) return 'open Hold or Duplicate in filing';
+  if (!(r.source && r.source.trim())) return 'no source reference';
+  return 'unknown';
+}
+
+/* ---------- E0 HEALTH ---------- */
+function e0Health(){
+  const out = { brokenWheels: [], lostSpirit: [], stale: [] };
+  for (const r of Object.values(db.records)){
+    if (r.origin === 'model' && (r.verify === 'V' || r.deliver === 'D') && !r.attestation)
+      out.brokenWheels.push(r.id);
+    if (r.origin === 'model' && r.runId && !(db.runs && db.runs[r.runId] && db.runs[r.runId].issuedBy))
+      out.lostSpirit.push(r.id);
+    if (r.constitutionHash && r.constitutionHash !== CONSTITUTION.hash)
+      out.stale.push(r.id);
+  }
+  return out;
+}
+
+/* ---------- SELECTS ---------- */
+const barrels = Array.from({length:49}, (_,i)=>'B'+String(i+1).padStart(2,'0'));
+const idOf = (b,s) => `${b}-S${String(s).padStart(3,'0')}`;
+
+function statusSelect(id, list, val){
+  const opts = [...list];
+  if (val && !opts.includes(val)) opts.unshift(val);
+  $(id).innerHTML = opts.map(c =>
+    `<option value="${esc(c)}" ${val===c?'selected':''}>${esc(c)} — ${esc(CODE_LABEL[c]||c)}</option>`
+  ).join('');
+}
+
+function initSelects(){
+  $('barrel').innerHTML = barrels.map(b=>`<option>${b}</option>`).join('');
+  $('barrelFilter').innerHTML = '<option value="ALL">All barrels</option>'+barrels.map(b=>`<option>${b}</option>`).join('');
+  $('ledgerBarrel').innerHTML = '<option value="ALL">All barrels</option>'+barrels.map(b=>`<option>${b}</option>`).join('');
+  $('section').innerHTML = Array.from({length:120},(_,i)=>`<option value="${i+1}">S${String(i+1).padStart(3,'0')}</option>`).join('');
+  $('grade').innerHTML = GRADES.map(g=>`<option value="${g}" title="${esc(CONSTITUTION.grades[g])}">${g}</option>`).join('');
+  $('register').innerHTML = REGISTERS.map(r=>`<option value="${r}" title="${esc(CONSTITUTION.registers[r])}">${r}</option>`).join('');
+  $('sec7').innerHTML = Array.from({length:7},(_,i)=>`<option value="S${i+1}">Section ${i+1}</option>`).join('');
+  $('sub12').innerHTML = Array.from({length:12},(_,i)=>`<option value="Sub${i+1}">Sub-section ${i+1}</option>`).join('');
+  statusSelect('verify', VERIFY_LIST, 'P');
+  statusSelect('fileStatus', FILE_LIST, 'P');
+  statusSelect('deliver', DELIVER_LIST, 'P');
+}
+
+/* ---------- EDITOR STATE ---------- */
+const currentId = () => idOf($('barrel').value, Number($('section').value));
+let dirty = false;
+let loadedSnapshot = null;   // {extract, grade, register} of the loaded record
+
+function msg(text, kind){
+  const el = $('editorMsg');
+  el.className = 'msg' + (kind ? ' ' + kind : '');
+  el.textContent = text;
+}
 
 function load(){
-  let r=get(currentId());
-  $('source').value=r.source;
-  $('extract').value=r.extract;
-  $('notes').value=r.notes;
-  $('grade').value=r.grade;
-  $('register').value=r.register;
-  $('sec7').value=r.sec7;
-  $('sub12').value=r.sub12;
-  statusSelect('verify',r.verify);
-  statusSelect('fileStatus',r.file);
-  statusSelect('deliver',r.deliver);
-  $('editorMsg').textContent=`${r.id} · ${r.updated?'Last saved '+r.updated:'No saved record.'}`;
+  const r = get(currentId());
+  $('source').value = r.source;
+  $('extract').value = r.extract;
+  $('notes').value = r.notes;
+  $('grade').value = r.grade;
+  $('register').value = r.register;
+  $('sec7').value = r.sec7;
+  $('sub12').value = r.sub12;
+  $('verifiedBy').value = r.verifiedBy || '';
+  statusSelect('verify', VERIFY_LIST, r.verify);
+  statusSelect('fileStatus', FILE_LIST, r.file);
+  statusSelect('deliver', DELIVER_LIST, r.deliver);
+  loadedSnapshot = { extract: r.extract, grade: r.grade, register: r.register };
+
+  const ab = $('attestBox');
+  if (r.attestation){
+    ab.innerHTML = `<span class="badge V">Attested</span> by <b>${esc(r.verifiedBy)}</b> at ${esc(r.verifiedAt)}
+      · hash <code>${esc(r.attestation)}</code> · constitution <code>${esc(r.constitutionVer)}</code>`;
+  } else if (r.origin === 'model'){
+    ab.innerHTML = `<span class="badge A">Machine-drafted</span> awaiting human review — conf/notes in record.`;
+  } else {
+    ab.innerHTML = `<span class="muted">No attestation. Verification requires a name and will seal the record.</span>`;
+  }
+
+  msg(`${r.id} · ${r.updated ? 'Last saved ' + r.updated : 'No saved record.'}`, '');
+  dirty = false;
 }
 
+/* ---------- SAVE ---------- */
 function saveRecord(){
-  let id=currentId();
-  db.records[id]={
+  const id = currentId();
+  const prev = db.records[id];
+  const now = new Date().toISOString();
+
+  const rec = {
     id,
-    source:$('source').value.trim(),
-    extract:$('extract').value,
-    verify:$('verify').value,
-    file:$('fileStatus').value,
-    deliver:$('deliver').value,
-    notes:$('notes').value,
-    grade:$('grade').value,
-    register:$('register').value,
-    sec7:$('sec7').value,
-    sub12:$('sub12').value,
-    updated:new Date().toISOString()
+    source: $('source').value.trim(),
+    extract: $('extract').value,
+    notes: $('notes').value,
+    verify: $('verify').value,
+    file: $('fileStatus').value,
+    deliver: $('deliver').value,
+    grade: $('grade').value,
+    register: $('register').value,
+    sec7: $('sec7').value,
+    sub12: $('sub12').value,
+    origin: prev?.origin || 'human',
+    verifiedBy: prev?.verifiedBy || '',
+    verifiedAt: prev?.verifiedAt || '',
+    attestation: prev?.attestation || '',
+    constitutionVer: CONSTITUTION.ver,
+    constitutionHash: CONSTITUTION.hash,
+    runId: prev?.runId || null,
+    model: prev?.model || null,
+    promptVer: prev?.promptVer || null,
+    processedAt: prev?.processedAt || null,
+    updated: now
   };
-  saved(); render(); $('editorMsg').textContent=`Saved ${id} as [${db.records[id].grade} | ${db.records[id].register}].`;
+
+  // Attestation break: protected fields changed → revert to Extracted
+  if (prev?.attestation){
+    const changed = prev.extract !== rec.extract
+                 || prev.grade !== rec.grade
+                 || prev.register !== rec.register;
+    if (changed){
+      rec.attestation = '';
+      rec.verifiedBy = '';
+      rec.verifiedAt = '';
+      if (rec.verify === 'V') rec.verify = 'E';
+      msg(`Attestation broken on ${id} — extract/grade/register changed. Record reverted to Extracted. Re-verify required.`, 'warn');
+    }
+  }
+
+  // Verification requires a named attestation
+  if (rec.verify === 'V'){
+    if (!rec.verifiedBy){
+      rec.verifiedBy = $('verifiedBy').value.trim();
+    }
+    if (!rec.verifiedBy){
+      msg('Verification requires a verifier name.', 'err');
+      return;
+    }
+    if (!rec.attestation){
+      rec.verifiedAt = now;
+      rec.attestation = attestationHash(rec);
+    }
+  }
+
+  // Delivery gate
+  if (rec.deliver === 'D' && !canDeliver(rec)){
+    msg('Cannot deliver: ' + deliverReason(rec) + '.', 'err');
+    return;
+  }
+
+  // E0 guard
+  try { guard(rec, rec.origin === 'model' ? 'model' : 'human'); }
+  catch(e){ msg(e.message, 'err'); return; }
+
+  db.records[id] = rec;
+  if (!saved()) return;
+
+  dirty = false;
+  const kind = (rec.attestation && rec.verify === 'V') ? 'ok' : '';
+  msg(`Saved ${id} — ${rec.grade}/${rec.register} · ${rec.verify}/${rec.file}/${rec.deliver}`
+      + (rec.attestation ? ` · attested ${rec.attestation}` : ''), kind || 'ok');
+  render();
+  load();
 }
 
-function records(){return Object.keys(db.records).sort().map(id=>db.records[id])}
-function count(field,val,barrel){return Object.values(db.records).filter(r=>(!barrel||r.id.startsWith(barrel+'-'))&&r[field]===val).length}
-function total(field,val){return count(field,val)}
+/* ---------- ROWS ---------- */
+function badge(code){ return `<span class="badge ${esc(code)}">${esc(code)}</span>`; }
 
-function row(r){
+function rowRecent(r){
   return `<tr>
-    <td>${esc(r.id)}</td>
-    <td><span class="badge ${r.grade}">${r.grade}</span> <span class="badge ${r.register}">${r.register}</span></td>
+    <td>${esc(r.id)}<span class="slot">${esc(r.sec7)} · ${esc(r.sub12)}</span></td>
+    <td>${badge(r.grade)}</td>
+    <td>${badge(r.register)}</td>
     <td>${esc(r.source||'—')}</td>
-    <td><span class="badge ${r.extract?'E':'P'}">${r.extract?'E':'P'}</span></td>
-    <td><span class="badge ${r.verify}">${r.verify}</span></td>
-    <td>${esc(r.notes||'—')}</td>
-    <td><button data-open="${r.id}">Edit</button></td>
+    <td>${badge(r.extract?'E':'P')}</td>
+    <td>${badge(r.verify)}</td>
+    <td>${esc((r.notes||'—').slice(0,80))}</td>
+    <td><button data-open="${esc(r.id)}">Edit</button></td>
   </tr>`;
 }
 
-function render(){
-  const extracted=Object.values(db.records).filter(r=>r.extract.trim()).length;
-  const stats=[
-    ['Total capacity','5,880'],
-    ['Extracted',extracted],
-    ['Verified',total('verify','V')],
-    ['Saved records',records().length]
-  ];
-  $('stats').innerHTML=stats.map(([n,v])=>`<div class="stat"><span class="muted">${n}</span><strong>${v}</strong></div>`).join('');
-
-  // Grade & Register Distribution
-  const g1=total('grade','G1'), g2=total('grade','G2'), g3=total('grade','G3'), g4=total('grade','G4'), g5=total('grade','G5');
-  const f=total('register','Fact'), b=total('register','Belief');
-  $('gradeStats').innerHTML=`
-    <p><span class="badge G1">G1</span> Ext. Verified: <b>${g1}</b></p>
-    <p><span class="badge G2">G2</span> Textual Fact: <b>${g2}</b></p>
-    <p><span class="badge G3">G3</span> Derived: <b>${g3}</b></p>
-    <p><span class="badge G4">G4</span> Interpretive: <b>${g4}</b></p>
-    <p><span class="badge G5">G5</span> Belief: <b>${g5}</b></p>
-    <hr style="border-color:#1b4668; margin:10px 0;">
-    <p><span class="badge Fact">Fact</span> Register: <b>${f}</b></p>
-    <p><span class="badge Belief">Belief</span> Register: <b>${b}</b></p>
-  `;
-
-  $('recent').innerHTML=records().slice(-10).reverse().map(row).join('')||'<tr><td colspan="7">No saved records yet.</td></tr>';
-  
-  $('barrelRows').innerHTML=barrels.filter(b=>$('barrelFilter').value==='ALL'||b===$('barrelFilter').value).map(b=>{
-    const rs=Object.values(db.records).filter(r=>r.id.startsWith(b+'-'));
-    return `<tr><td>${b}</td><td>${rs.filter(r=>r.source).length}</td><td>${rs.filter(r=>r.extract.trim()).length}/120</td><td>${rs.filter(r=>r.verify==='V').length}/120</td><td>${rs.filter(r=>r.file==='F').length}/120</td><td>${rs.filter(r=>r.deliver==='D').length}/120</td><td>${rs.filter(r=>[r.verify,r.file,r.deliver].includes('H')).length}</td><td><button data-barrel="${b}">Open</button></td></tr>`
-  }).join('');
-
-  const q=$('ledgerSearch').value.toLowerCase(), bf=$('ledgerBarrel').value, sf=$('ledgerStatus').value;
-  let rows=[];
-  for(const b of barrels){
-    if(bf!=='ALL'&&b!==bf)continue;
-    for(let s=1;s<=120;s++){
-      const r=get(idOf(b,s));
-      const blob=[r.id,r.source,r.extract,r.notes,r.grade,r.register,r.sec7,r.sub12].join(' ').toLowerCase();
-      const statuses=[r.extract.trim()?'E':'P',r.verify,r.file,r.deliver];
-      if(q&&!blob.includes(q))continue;
-      if(sf!=='ALL'&&!statuses.includes(sf))continue;
-      rows.push(r)
-    }
-  }
-  $('ledgerRows').innerHTML=rows.map(row).join('');
-  $('ledgerCount').textContent=`Showing ${rows.length.toLocaleString()} section slots. ${Object.keys(db.records).length.toLocaleString()} section records saved.`;
+function rowLedger(r){
+  return `<tr>
+    <td>${esc(r.id)}<span class="slot">${esc(r.sec7)} · ${esc(r.sub12)}</span></td>
+    <td>${badge(r.grade)} ${badge(r.register)}</td>
+    <td><span class="badge ${esc(r.origin||'unknown')}">${esc(r.origin||'unknown')}</span></td>
+    <td>${esc(r.source||'—')}</td>
+    <td title="${esc(r.extract)}">${esc((r.extract||'—').slice(0,60))}</td>
+    <td>${badge(r.verify)}</td>
+    <td>${badge(r.file)}</td>
+    <td>${badge(r.deliver)}</td>
+    <td><button data-open="${esc(r.id)}">Edit</button></td>
+  </tr>`;
 }
 
-function download(name,content,type){const a=document.createElement('a');const u=URL.createObjectURL(new Blob([content],{type}));a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1500)}
-function csvCell(v){return '"'+String(v??'').replace(/"/g,'""')+'"'}
+/* ---------- RENDER ---------- */
+let ledgerSearchTimer;
+function render(){
+  const all = Object.values(db.records);
+  const extracted = all.filter(r => r.extract.trim()).length;
+  const verified  = all.filter(r => r.verify === 'V').length;
+  const queue     = all.filter(r => r.verify === 'A').length;
+
+  $('stats').innerHTML = [
+    ['Total capacity','5,880'],
+    ['Extracted', extracted],
+    ['Verified', verified],
+    ['Review queue', queue]
+  ].map(([n,v])=>`<div class="stat"><span class="muted">${n}</span><strong>${v}</strong></div>`).join('');
+
+  $('queueCount').textContent = queue;
+
+  // Grade distribution
+  const gc = {}; GRADES.forEach(g => gc[g] = 0);
+  const rc = {}; REGISTERS.forEach(k => rc[k] = 0);
+  for (const r of all){ if (gc[r.grade] !== undefined) gc[r.grade]++; if (rc[r.register] !== undefined) rc[r.register]++; }
+  $('gradeStats').innerHTML =
+    GRADES.map(g => `<p>${badge(g)} ${esc(CONSTITUTION.grades[g])}: <b>${gc[g]}</b></p>`).join('') +
+    `<hr style="border-color:#1b4668;margin:10px 0;">` +
+    REGISTERS.map(k => `<p>${badge(k)} Register: <b>${rc[k]}</b></p>`).join('');
+
+  // Recently updated — real sort
+  $('recent').innerHTML = all
+    .filter(r => r.updated)
+    .sort((a,b) => b.updated.localeCompare(a.updated))
+    .slice(0, 10)
+    .map(rowRecent).join('') || '<tr><td colspan="8">No saved records yet.</td></tr>';
+
+  // Barrel index
+  $('barrelRows').innerHTML = barrels
+    .filter(b => $('barrelFilter').value === 'ALL' || b === $('barrelFilter').value)
+    .map(b => {
+      const rs = all.filter(r => r.id.startsWith(b+'-'));
+      return `<tr>
+        <td>${b}</td>
+        <td>${rs.filter(r=>r.source).length}</td>
+        <td>${rs.filter(r=>r.extract.trim()).length}/120</td>
+        <td>${rs.filter(r=>r.verify==='V').length}/120</td>
+        <td>${rs.filter(r=>r.file==='F').length}/120</td>
+        <td>${rs.filter(r=>r.deliver==='D').length}/120</td>
+        <td>${rs.filter(r=>[r.verify,r.file,r.deliver].includes('H')).length}</td>
+        <td><button data-barrel="${b}">Open</button></td>
+      </tr>`;
+    }).join('');
+
+  // Ledger
+  const q = $('ledgerSearch').value.toLowerCase();
+  const bf = $('ledgerBarrel').value;
+  const sf = $('ledgerStatus').value;
+  const rows = [];
+  for (const b of barrels){
+    if (bf !== 'ALL' && b !== bf) continue;
+    for (let s = 1; s <= 120; s++){
+      const r = get(idOf(b,s));
+      const blob = [r.id,r.source,r.extract,r.notes,r.grade,r.register,r.sec7,r.sub12,r.verifiedBy].join(' ').toLowerCase();
+      const statuses = [r.extract.trim()?'E':'P', r.verify, r.file, r.deliver];
+      if (q && !blob.includes(q)) continue;
+      if (sf !== 'ALL' && !statuses.includes(sf)) continue;
+      rows.push(r);
+    }
+  }
+  $('ledgerRows').innerHTML = rows.map(rowLedger).join('');
+  $('ledgerCount').textContent = `Showing ${rows.length.toLocaleString()} section slots. ${all.length.toLocaleString()} section records saved.`;
+
+  // Health banner
+  const health = e0Health();
+  const issues = [];
+  if (health.brokenWheels.length) issues.push(`<b>Wheels without wings</b> — model-origin records marked verified/delivered without attestation: ${health.brokenWheels.length} (${health.brokenWheels.slice(0,6).join(', ')}${health.brokenWheels.length>6?'…':''})`);
+  if (health.lostSpirit.length) issues.push(`<b>Mechanism without Spirit</b> — model records with no human-issued run: ${health.lostSpirit.length}`);
+  if (health.stale.length)       issues.push(`<b>Graded under a different Word</b> — records whose constitution hash differs from current (${CONSTITUTION.ver}): ${health.stale.length} (${health.stale.slice(0,6).join(', ')}${health.stale.length>6?'…':''})`);
+
+  $('healthBanner').innerHTML = issues.length
+    ? `<div class="banner red">E0 HEALTH — the machine is broken<lu>${issues.map(i=>`<li>${i}</li>`).join('')}</lu></div>`.replace('<lu>','<ul>').replace('</lu>','</ul>')
+    : '';
+
+  // Backup nag
+  const hasRecords = all.length > 0;
+  const last = db.meta.lastExport ? new Date(db.meta.lastExport) : null;
+  const days = last ? Math.floor((Date.now() - last.getTime()) / 86400000) : null;
+  const needBackup = hasRecords && (days === null || days >= 7);
+  $('backupBanner').innerHTML = needBackup
+    ? `<div class="banner amber">${hasRecords ? (days===null ? 'No backup has ever been exported.' : `Last backup was ${days} days ago.`) : ''} localStorage can be evicted by the OS — export a JSON backup now.</div>`
+    : '';
+  $('lastExport').textContent = last ? `Last export: ${db.meta.lastExport}` : 'No export yet.';
+  $('hdrConst').textContent = CONSTITUTION.ver + ' / ' + CONSTITUTION.hash;
+  $('ftrConst').textContent = CONSTITUTION.ver;
+}
+
+/* ---------- DOWNLOAD ---------- */
+function download(name, content, type){
+  // Browser path. Native (Capacitor/AndroidBridge) branches are documented but
+  // not wired here — add them when you package the APK.
+  const a = document.createElement('a');
+  const u = URL.createObjectURL(new Blob([content], { type }));
+  a.href = u; a.download = name; a.click();
+  setTimeout(() => URL.revokeObjectURL(u), 1500);
+}
+
+const csvCell = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
 
 function exportCsv(){
-  let lines=[['ID','GRADE','REGISTER','SEC_7','SUB_12','SOURCE','EXTRACT','VERIFY','FILE','DELIVER','NOTES','UPDATED'].join(',')];
-  for(const b of barrels)for(let s=1;s<=120;s++){
-    const r=get(idOf(b,s));
-    lines.push([r.id,r.grade,r.register,r.sec7,r.sub12,r.source,r.extract,r.verify,r.file,r.deliver,r.notes,r.updated].map(csvCell).join(','))
+  const lines = [['ID','GRADE','REGISTER','SEC_7','SUB_12','ORIGIN','SOURCE','EXTRACT','VERIFY','FILE','DELIVER','VERIFIED_BY','ATTESTATION','CONSTITUTION','NOTES','UPDATED'].join(',')];
+  for (const b of barrels) for (let s = 1; s <= 120; s++){
+    const r = get(idOf(b,s));
+    lines.push([r.id,r.grade,r.register,r.sec7,r.sub12,r.origin||'unknown',r.source,r.extract,
+                r.verify,r.file,r.deliver,r.verifiedBy,r.attestation,r.constitutionVer,r.notes,r.updated]
+                .map(csvCell).join(','));
   }
-  download('mastercore-section-ledger.csv',lines.join('\r\n'),'text/csv;charset=utf-8')
+  download('mastercore-section-ledger.csv', '\ufeff' + lines.join('\r\n'), 'text/csv;charset=utf-8');
 }
 
-document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));$('view-'+btn.dataset.view).classList.remove('hidden');document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===btn));render()}));
-$('barrel').addEventListener('change',load);$('section').addEventListener('change',load);$('saveSection').addEventListener('click',saveRecord);$('loadSection').addEventListener('click',load);
-[['markExtracted','verify','E'],['markVerified','verify','V'],['markFiled','fileStatus','F'],['markDelivered','deliver','D']].forEach(([id,field,val])=>$(id).addEventListener('click',()=>{if(val==='E'){if(!$('extract').value.trim()){alert('Enter extracted material before marking it extracted.');return} $('verify').value='E'}else $(field).value=val;saveRecord()}));
-$('barrelFilter').addEventListener('change',render);$('ledgerBarrel').addEventListener('change',render);$('ledgerStatus').addEventListener('change',render);$('ledgerSearch').addEventListener('input',render);
-
-document.addEventListener('click',e=>{
-  if(e.target.dataset.open){
-    const [b,s]=e.target.dataset.open.split('-S');
-    $('barrel').value=b;$('section').value=String(Number(s));
-    document.querySelector('[data-view="section"]').click();load()
+/* ---------- EVENTS ---------- */
+document.querySelectorAll('[data-view]').forEach(btn => btn.addEventListener('click', () => {
+  // Don't leave unsaved editor work silently
+  if (dirty && !document.getElementById('view-section').classList.contains('hidden')){
+    if (!confirm('You have unsaved changes in the editor. Leave anyway?')) return;
+    dirty = false;
   }
-  if(e.target.dataset.barrel){
-    $('barrel').value=e.target.dataset.barrel;$('section').value='1';
-    document.querySelector('[data-view="section"]').click();load()
-  }
-});
+  document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+  $('view-' + btn.dataset.view).classList.remove('hidden');
+  document.querySelectorAll('[data-view]').forEach(x => x.classList.toggle('active', x === btn));
+  render();
+}));
 
-$('jumpEdit').addEventListener('click',()=>document.querySelector('[data-view="section"]').click());
-$('jumpLedger').addEventListener('click',()=>document.querySelector('[data-view="ledger"]').click());
-$('exportJson').addEventListener('click',()=>download('mastercore-backup.json',JSON.stringify(db,null,2),'application/json'));
-$('exportCsv').addEventListener('click',exportCsv);
+function guardedLoad(){
+  if (dirty && !confirm('Discard unsaved changes to ' + currentId() + '?')) return;
+  load();
+}
 
-$('importJson').addEventListener('change',async e=>{
-  const f=e.target.files[0];if(!f)return;
-  try{
-    const x=JSON.parse(await f.text());
-    if(!x.records||typeof x.records!=='object')throw Error('Backup must contain a records object.');
-    let n=0;
-    for(const [id,r] of Object.entries(x.records)){
-      if(/^B\d{2}-S\d{3}$/.test(id)&&Number(id.slice(-3))<=120&&Number(id.slice(1,3))<=49){
-        // Ensure fallback for imports from older versions
-        if(!r.grade) { r.grade='G1'; }
-        if(!r.register) { r.register='Fact'; }
-        if(!r.sec7) { r.sec7='S1'; }
-        if(!r.sub12) { r.sub12='Sub1'; }
-        db.records[id]=r;n++;
-      }
+$('barrel').addEventListener('change', guardedLoad);
+$('section').addEventListener('change', guardedLoad);
+$('saveSection').addEventListener('click', saveRecord);
+$('loadSection').addEventListener('click', guardedLoad);
+
+['source','extract','notes','grade','register','sec7','sub12','verify','fileStatus','deliver','verifiedBy']
+  .forEach(id => $(id).addEventListener('input', () => { dirty = true; }));
+
+[['markExtracted','verify','E'],['markVerified','verify','V'],['markFiled','fileStatus','F'],['markDelivered','deliver','D']]
+  .forEach(([id, field, val]) => $(id).addEventListener('click', () => {
+    if (val === 'E'){
+      if (!$('extract').value.trim()){ msg('Enter extracted material before marking it extracted.', 'err'); return; }
+      $('verify').value = 'E';
+    } else if (val === 'V'){
+      if (!$('verifiedBy').value.trim()){ msg('Enter a verifier name before marking verified.', 'err'); $('verifiedBy').focus(); return; }
+      $('verify').value = 'V';
+    } else {
+      $(field).value = val;
     }
-    saved();render();$('backupMsg').textContent=`Imported ${n} section records.`
-  }catch(err){
-    $('backupMsg').textContent='Import failed: '+err.message
-  }
-  e.target.value=''
+    saveRecord();
+  }));
+
+$('deleteSection').addEventListener('click', () => {
+  const id = currentId();
+  if (!db.records[id]){ msg('No saved record to delete at ' + id + '.', 'warn'); return; }
+  if (!confirm('Delete saved record ' + id + '? This cannot be undone.')) return;
+  delete db.records[id];
+  if (!saved()) return;
+  msg('Deleted ' + id + '.', 'warn');
+  render(); load();
 });
 
-initSelects();render();load();
+$('barrelFilter').addEventListener('change', render);
+$('ledgerBarrel').addEventListener('change', render);
+$('ledgerStatus').addEventListener('change', render);
+$('ledgerSearch').addEventListener('input', () => {
+  clearTimeout(ledgerSearchTimer);
+  ledgerSearchTimer = setTimeout(render, 160);
+});
+
+document.addEventListener('click', e => {
+  if (e.target.dataset.open){
+    if (dirty && !confirm('Discard unsaved changes to ' + currentId() + '?')) return;
+    const [b, s] = e.target.dataset.open.split('-S');
+    $('barrel').value = b;
+    $('section').value = String(Number(s));
+    document.querySelector('[data-view="section"]').click();
+    load();
+  }
+  if (e.target.dataset.barrel){
+    if (dirty && !confirm('Discard unsaved changes to ' + currentId() + '?')) return;
+    $('barrel').value = e.target.dataset.barrel;
+    $('section').value = '1';
+    document.querySelector('[data-view="section"]').click();
+    load();
+  }
+});
+
+$('jumpEdit').addEventListener('click', () => document.querySelector('[data-view="section"]').click());
+$('jumpLedger').addEventListener('click', () => document.querySelector('[data-view="ledger"]').click());
+$('jumpQueue').addEventListener('click', () => {
+  $('ledgerStatus').value = 'A';
+  document.querySelector('[data-view="ledger"]').click();
+});
+
+$('exportJson').addEventListener('click', () => {
+  db.meta.lastExport = new Date().toISOString();
+  saved();
+  download('mastercore-backup.json', JSON.stringify(db, null, 2), 'application/json');
+  $('backupMsg').className = 'msg ok';
+  $('backupMsg').textContent = 'Backup exported.';
+  render();
+});
+$('exportCsv').addEventListener('click', exportCsv);
+
+/* ---------- IMPORT ---------- */
+$('importJson').addEventListener('change', async e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  try {
+    const x = JSON.parse(await f.text());
+    if (!x.records || typeof x.records !== 'object') throw new Error('Backup must contain a records object.');
+    let added = 0, replaced = 0, skipped = 0;
+    for (const [id, r] of Object.entries(x.records)){
+      if (!/^B\d{2}-S\d{3}$/.test(id)) { skipped++; continue; }
+      const n = Number(id.slice(-3)), b = Number(id.slice(1,3));
+      if (n < 1 || n > 120 || b < 1 || b > 49) { skipped++; continue; }
+
+      // Field validation — never trust imported grade/register/status blindly
+      const grade    = GRADES.includes(r.grade) ? r.grade : 'G1';
+      const register = REGISTERS.includes(r.register) ? r.register : 'Fact';
+      const verify   = (r.verify in CODE_LABEL) ? r.verify : 'P';
+      const file     = (r.file in CODE_LABEL) ? r.file : 'P';
+      const deliver  = (r.deliver in CODE_LABEL) ? r.deliver : 'P';
+
+      const record = {
+        ...blank(id),
+        source: String(r.source || ''),
+        extract: String(r.extract || ''),
+        notes: String(r.notes || ''),
+        grade, register, verify, file, deliver,
+        sec7: /^S[1-7]$/.test(r.sec7 || '') ? r.sec7 : 'S1',
+        sub12: /^Sub([1-9]|1[0-2])$/.test(r.sub12 || '') ? r.sub12 : 'Sub1',
+        origin: ['human','model','unknown'].includes(r.origin) ? r.origin : 'unknown',
+        verifiedBy: String(r.verifiedBy || ''),
+        verifiedAt: String(r.verifiedAt || ''),
+        attestation: String(r.attestation || ''),
+        constitutionVer: r.constitutionVer || 'unknown',
+        constitutionHash: r.constitutionHash || '',
+        runId: r.runId || null,
+        model: r.model || null,
+        promptVer: r.promptVer || null,
+        processedAt: r.processedAt || null,
+        updated: r.updated || ''
+      };
+
+      // Re-validate attestation if present
+      if (record.attestation){
+        const expected = attestationHash(record);
+        if (record.attestation !== expected){
+          record.attestation = '';
+          record.verifiedBy = '';
+          record.verifiedAt = '';
+          if (record.verify === 'V') record.verify = 'E';
+        }
+      }
+
+      if (db.records[id]) replaced++; else added++;
+      db.records[id] = record;
+    }
+    if (x.meta && x.meta.lastExport) db.meta.lastExport = x.meta.lastExport;
+    if (!saved()) return;
+    render();
+    $('backupMsg').className = 'msg ok';
+    $('backupMsg').textContent = `Imported ${added} new, ${replaced} replaced, ${skipped} skipped.`;
+  } catch(err){
+    $('backupMsg').className = 'msg err';
+    $('backupMsg').textContent = 'Import failed: ' + err.message;
+  }
+  e.target.value = '';
+});
+
+/* ---------- BOOT ---------- */
+initSelects();
+render();
+load();
+
 })();
 </script>
 </body>
