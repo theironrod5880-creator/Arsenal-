@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#06182b">
-<title>VAULT SET — MASTERCORE PROCESSOR v2</title>
+<title>THE IRON ROD — MASTERCORE PROCESSOR v3</title>
 <style>
 :root{color-scheme:dark;--bg:#061321;--panel:#0a2038;--line:#168bd7;--text:#eaf4ff;--muted:#a9c0d8;--blue:#087fff;--green:#00c99a;--amber:#ffbd43;--red:#ff5368}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#04101e,#061b31 55%,#03101d);color:var(--text);font:14px/1.45 system-ui,Arial,sans-serif}header{padding:18px 22px;background:#04182b;border-bottom:2px solid var(--line)}h1{margin:0;font-size:clamp(21px,3vw,32px)}header p,.muted{color:var(--muted)}header p{margin:4px 0 0}.wrap{max-width:1400px;margin:auto;padding:14px}.nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}.nav button,button{cursor:pointer;border:1px solid #3b83b3;border-radius:6px;padding:9px 12px;background:#123657;color:white;font:inherit}.nav button.active,button.primary{background:var(--blue);border-color:#64c0ff}.danger{background:#7d1e32;border-color:#ef6176}.panel{background:#081e34;border:1px solid var(--line);border-radius:8px;margin-bottom:12px;overflow:hidden}.panel h2{font-size:16px;margin:0;padding:9px 12px;background:#092848;border-bottom:1px solid #147db7}.body{padding:12px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.stat{border:1px solid #168bd7;border-radius:7px;padding:10px}.stat strong{font-size:24px;display:block}.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}label{display:block;color:#b9d8f5;margin:8px 0 4px}input,select,textarea{width:100%;padding:9px;background:#04172a;color:var(--text);border:1px solid #38739c;border-radius:6px;font:inherit}textarea{min-height:100px;resize:vertical}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.tablewrap{overflow:auto;max-height:65vh}table{border-collapse:collapse;width:100%;min-width:800px;font-size:12px}td,th{padding:6px 7px;border:1px solid #1b4668;text-align:left}th{background:#0a2d4f;position:sticky;top:0}tr:nth-child(even){background:#0b2138}.badge{display:inline-block;border-radius:12px;padding:2px 7px;font-weight:700;font-size:11px;background:#244e77}.P{background:#244e77}.W{background:#785117}.E{background:#135b81}.V{background:#075d4d}.F{background:#34517a}.D{background:#08774f}.H{background:#802438}.X{background:#5e3b78}.T1{background:#1a6b1a}.T2{background:#1a4a8b}.T3{background:#8b6a1a}.T4{background:#8b1a1a}.small{font-size:12px}.notice{padding:9px;border-left:4px solid var(--amber);background:#35280d;color:#ffedbd;margin:8px 0}.hidden{display:none!important}.foot{padding:12px 20px;border-top:1px solid #1d5077;color:var(--muted)}.e0lock{border:2px solid var(--red);background:rgba(255,83,104,0.05);border-radius:8px;padding:15px;margin-bottom:12px}.e0lock h2{color:var(--red);border-bottom:none;background:none;padding:0;margin:0 0 10px}@media(max-width:750px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}.wrap{padding:8px}}@media(max-width:420px){.fields{grid-template-columns:1fr}}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#04101e,#061b31 55%,#03101d);color:var(--text);font:14px/1.45 system-ui,Arial,sans-serif}header{padding:18px 22px;background:#04182b;border-bottom:2px solid var(--line)}h1{margin:0;font-size:clamp(21px,3vw,32px)}header p,.muted{color:var(--muted)}header p{margin:4px 0 0}.wrap{max-width:1400px;margin:auto;padding:14px}.nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}.nav button,button{cursor:pointer;border:1px solid #3b83b3;border-radius:6px;padding:9px 12px;background:#123657;color:white;font:inherit}.nav button.active,button.primary{background:var(--blue);border-color:#64c0ff}.danger{background:#7d1e32;border-color:#ef6176}.panel{background:#081e34;border:1px solid var(--line);border-radius:8px;margin-bottom:12px;overflow:hidden}.panel h2{font-size:16px;margin:0;padding:9px 12px;background:#092848;border-bottom:1px solid #147db7}.body{padding:12px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.stat{border:1px solid #168bd7;border-radius:7px;padding:10px}.stat strong{font-size:24px;display:block}.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}label{display:block;color:#b9d8f5;margin:8px 0 4px}input,select,textarea{width:100%;padding:9px;background:#04172a;color:var(--text);border:1px solid #38739c;border-radius:6px;font:inherit}textarea{min-height:100px;resize:vertical}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.tablewrap{overflow:auto;max-height:65vh}table{border-collapse:collapse;width:100%;min-width:800px;font-size:12px}td,th{padding:6px 7px;border:1px solid #1b4668;text-align:left}th{background:#0a2d4f;position:sticky;top:0}tr:nth-child(even){background:#0b2138}.badge{display:inline-block;border-radius:12px;padding:2px 7px;font-weight:700;font-size:11px;background:#244e77}.P{background:#244e77}.W{background:#785117}.E{background:#135b81}.V{background:#075d4d}.F{background:#34517a}.D{background:#08774f}.H{background:#802438}.X{background:#5e3b78}.G1{background:#1a6b1a}.G2{background:#1a4a8b}.G3{background:#8b6a1a}.G4{background:#8b1a1a}.G5{background:#5e3b78}.Fact{background:#08774f}.Belief{background:#7d1e32}.small{font-size:12px}.notice{padding:9px;border-left:4px solid var(--amber);background:#35280d;color:#ffedbd;margin:8px 0}.hidden{display:none!important}.foot{padding:12px 20px;border-top:1px solid #1d5077;color:var(--muted)}.e0lock{border:2px solid var(--red);background:rgba(255,83,104,0.05);border-radius:8px;padding:15px;margin-bottom:12px}.e0lock h2{color:var(--red);border-bottom:none;background:none;padding:0;margin:0 0 10px}@media(max-width:750px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}.wrap{padding:8px}}@media(max-width:420px){.fields{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
-  <h1>VAULT SET — MASTERCORE PROCESSOR v2</h1>
-  <p>49 barrels · 120 sections · 5,880 slots · 4 Tiers × 7 Sections × 12 Sub-sections</p>
+  <h1>THE IRON ROD — MASTERCORE PROCESSOR v3</h1>
+  <p>49 barrels · 120 sections · 5,880 slots · 5 Grades × Fact/Belief</p>
 </header>
 <div class="wrap">
 <div class="nav">
@@ -26,7 +26,7 @@
 
 <section id="view-dashboard" class="view">
  
- <!-- E0 LOCK INSERTED HERE -->
+ <!-- E0 LOCK -->
  <div class="e0lock">
    <h2>E0 LOCK — THE 1 MACHINE RULE</h2>
    <p><b>Status:</b> E0 Stipulated. Binding on all tiers, faces, wings, and wheels.</p>
@@ -38,21 +38,21 @@
    </ul>
    <p><b>The Lock:</b> No mechanism may operate without the voice of the People. No People may speak without the authority of the Throne. If the wheels turn without the wings moving, the machine is broken.</p>
  </div>
- <!-- END E0 LOCK -->
 
- <div class="panel"><h2>GLOBAL CONTROL</h2><div class="body"><div class="stats" id="stats"></div><p class="notice">Hierarchy Engine Active: 4 Tiers branch into 7 Sections, branching into 12 Sub-sections (336 possible nodes per record).</p><div class="actions"><button class="primary" id="jumpEdit">Edit a section</button><button id="jumpLedger">Open full ledger</button></div></div></div>
+ <div class="panel"><h2>GLOBAL CONTROL</h2><div class="body"><div class="stats" id="stats"></div><p class="notice">Iron Rod Engine Active: Grade 1-5 and Fact/Belief Registers integrated.</p><div class="actions"><button class="primary" id="jumpEdit">Edit a section</button><button id="jumpLedger">Open full ledger</button></div></div></div>
  <div class="grid2">
-   <div class="panel"><h2>MASTER INDEX</h2><div class="body"><p><b>Capacity:</b> 49 × 120 = 5,880 base slots.</p><p><b>Identification:</b> B01-S001 through B49-S120.</p><p><b>Hierarchy:</b> T1-T4 | Sec 1-7 | Sub 1-12</p><p><b>Progress rule:</b> Extraction, verification, filing, and delivery are tracked separately.</p></div></div>
-   <div class="panel"><h2>TIER DISTRIBUTION</h2><div class="body" id="tierStats"></div></div>
+   <div class="panel"><h2>MASTER INDEX</h2><div class="body"><p><b>Capacity:</b> 49 × 120 = 5,880 base slots.</p><p><b>Identification:</b> B01-S001 through B49-S120.</p><p><b>Hierarchy:</b> Grade (1-5) | Register (F/B) | Sec 1-7 | Sub 1-12</p><p><b>Progress rule:</b> Extraction, verification, filing, and delivery are tracked separately.</p></div></div>
+   <div class="panel"><h2>GRADE & REGISTER DISTRIBUTION</h2><div class="body" id="gradeStats"></div></div>
  </div>
- <div class="panel"><h2>RECENTLY UPDATED</h2><div class="tablewrap"><table><thead><tr><th>ID</th><th>Tier</th><th>Source</th><th>Extract</th><th>Verify</th><th>Notes</th></tr></thead><tbody id="recent"></tbody></table></div></div>
+ <div class="panel"><h2>RECENTLY UPDATED</h2><div class="tablewrap"><table><thead><tr><th>ID</th><th>Grade</th><th>Register</th><th>Source</th><th>Extract</th><th>Verify</th><th>Notes</th></tr></thead><tbody id="recent"></tbody></table></div></div>
 </section>
 
 <section id="view-section" class="view hidden"><div class="panel"><h2>SECTION RECORD EDITOR</h2><div class="body">
  <div class="fields"><div><label for="barrel">Barrel</label><select id="barrel"></select></div><div><label for="section">Section</label><select id="section"></select></div><div><label for="source">Source reference</label><input id="source" placeholder="URL, filename, page, or reference"></div></div>
  
  <div class="fields" style="background:#04172a; padding:10px; border-radius:6px; margin:10px 0; border:1px solid #1b4668;">
-   <div><label for="tier">Tier (1-4)</label><select id="tier"></select></div>
+   <div><label for="grade">Grade (1-5)</label><select id="grade"></select></div>
+   <div><label for="register">Register</label><select id="register"></select></div>
    <div><label for="sec7">Section (1-7)</label><select id="sec7"></select></div>
    <div><label for="sub12">Sub-section (1-12)</label><select id="sub12"></select></div>
  </div>
@@ -61,29 +61,28 @@
  <div class="fields"><div><label for="verify">Verification status</label><select id="verify"></select></div><div><label for="fileStatus">Filing status</label><select id="fileStatus"></select></div><div><label for="deliver">Delivery status</label><select id="deliver"></select></div></div>
  <label for="notes">Notes — missing material, duplicates, conflicts, etc.</label><textarea id="notes" placeholder="Record gaps, conflicts, duplicate references, and follow-up needed."></textarea>
  <div class="actions"><button class="primary" id="saveSection">Save section</button><button id="loadSection">Load saved record</button><button id="markExtracted">Mark extracted</button><button id="markVerified">Mark verified</button><button id="markFiled">Mark filed</button><button id="markDelivered">Mark delivered</button></div>
- <p class="muted small">The workflow fields are independent. Hierarchy fields assign the record to the 4x7x12 architecture.</p><div id="editorMsg"></div>
+ <p class="muted small">The workflow fields are independent. Grades and Registers assign the record to the Iron Rod architecture.</p><div id="editorMsg"></div>
 </div></div></section>
 
 <section id="view-barrels" class="view hidden"><div class="panel"><h2>BARREL INDEX</h2><div class="body"><label for="barrelFilter">Filter barrels</label><select id="barrelFilter"></select><div class="tablewrap"><table><thead><tr><th>Barrel</th><th>Source count</th><th>Extracted</th><th>Verified</th><th>Filed</th><th>Delivered</th><th>Hold</th><th>Open</th></tr></thead><tbody id="barrelRows"></tbody></table></div></div></div></section>
 
-<section id="view-ledger" class="view hidden"><div class="panel"><h2>CONSOLIDATED SECTION LEDGER</h2><div class="body"><div class="fields"><div><label for="ledgerBarrel">Barrel filter</label><select id="ledgerBarrel"></select></div><div><label for="ledgerStatus">Workflow filter</label><select id="ledgerStatus"><option value="ALL">All statuses</option><option>P</option><option>W</option><option>E</option><option>V</option><option>F</option><option>D</option><option>H</option><option>X</option></select></div><div><label for="ledgerSearch">Search</label><input id="ledgerSearch" placeholder="ID, source, notes, text"></div></div><p class="muted small">Showing saved records and untouched pending slots.</p><div class="tablewrap"><table><thead><tr><th>ID</th><th>Tier / Sec / Sub</th><th>Source</th><th>Extract</th><th>Verify</th><th>File</th><th>Deliver</th><th>Edit</th></tr></thead><tbody id="ledgerRows"></tbody></table></div><p id="ledgerCount" class="muted small"></p></div></div></section>
+<section id="view-ledger" class="view hidden"><div class="panel"><h2>CONSOLIDATED SECTION LEDGER</h2><div class="body"><div class="fields"><div><label for="ledgerBarrel">Barrel filter</label><select id="ledgerBarrel"></select></div><div><label for="ledgerStatus">Workflow filter</label><select id="ledgerStatus"><option value="ALL">All statuses</option><option>P</option><option>W</option><option>E</option><option>V</option><option>F</option><option>D</option><option>H</option><option>X</option></select></div><div><label for="ledgerSearch">Search</label><input id="ledgerSearch" placeholder="ID, source, notes, text"></div></div><p class="muted small">Showing saved records and untouched pending slots.</p><div class="tablewrap"><table><thead><tr><th>ID</th><th>Grade / Reg</th><th>Source</th><th>Extract</th><th>Verify</th><th>File</th><th>Deliver</th><th>Edit</th></tr></thead><tbody id="ledgerRows"></tbody></table></div><p id="ledgerCount" class="muted small"></p></div></div></section>
 
 <section id="view-backup" class="view hidden"><div class="panel"><h2>IMPORT / EXPORT</h2><div class="body"><p>Backups contain the saved section records and configuration.</p><div class="actions"><button class="primary" id="exportJson">Export JSON backup</button><button id="exportCsv">Export full 5,880-row CSV ledger</button><label class="primary" style="display:inline-block;padding:9px 12px;border-radius:6px;cursor:pointer">Import JSON backup<input id="importJson" type="file" accept="application/json" hidden></label></div><div id="backupMsg" class="muted"></div></div></div></section>
 </div>
 
-<footer class="foot">MASTERCORE STATUS: Hierarchy Engine Online. E0 Lock Active.</footer>
+<footer class="foot">MASTERCORE STATUS: Iron Rod Engine Online. 5 Grades × 2 Registers active.</footer>
 
 <script>
 (()=>{
-const KEY='mastercore_processor_v2'; // v2 schema
+const KEY='mastercore_processor_v3'; // v3 schema - Iron Rod merge
 const codes=[['P','Pending'],['W','In progress'],['E','Extracted'],['V','Verified'],['F','Filed'],['D','Delivered'],['H','Hold'],['X','Duplicate']];
 const barrels=Array.from({length:49},(_,i)=>'B'+String(i+1).padStart(2,'0'));
 const idOf=(b,s)=>`${b}-S${String(s).padStart(3,'0')}`;
 let db;try{db=JSON.parse(localStorage.getItem(KEY))||{records:{}}}catch(e){db={records:{}}}
 const $=x=>document.getElementById(x), esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-// Includes new hierarchy fields in the blank schema
-const blank=id=>({id,source:'',extract:'',verify:'P',file:'P',deliver:'P',notes:'',updated:'', tier:'T1', sec7:'S1', sub12:'Sub1'});
+const blank=id=>({id,source:'',extract:'',verify:'P',file:'P',deliver:'P',notes:'',updated:'', grade:'G1', register:'Fact', sec7:'S1', sub12:'Sub1'});
 const get=id=>db.records[id]||blank(id);
 const saved=()=>localStorage.setItem(KEY,JSON.stringify(db));
 const statusSelect=(id,val)=>$(id).innerHTML=codes.map(([c,n])=>`<option value="${c}" ${val===c?'selected':''}>${c} — ${n}</option>`).join('');
@@ -95,8 +94,9 @@ function initSelects(){
   $('section').innerHTML=Array.from({length:120},(_,i)=>`<option value="${i+1}">S${String(i+1).padStart(3,'0')}</option>`).join('');
   ['verify','fileStatus','deliver'].forEach(id=>statusSelect(id,'P'));
 
-  // Populate Hierarchy Selects
-  $('tier').innerHTML=['T1','T2','T3','T4'].map(t=>`<option value="${t}">${t}</option>`).join('');
+  // Iron Rod Selects
+  $('grade').innerHTML=['G1','G2','G3','G4','G5'].map(g=>`<option value="${g}">${g}</option>`).join('');
+  $('register').innerHTML=['Fact','Belief'].map(r=>`<option value="${r}">${r}</option>`).join('');
   $('sec7').innerHTML=Array.from({length:7},(_,i)=>`<option value="S${i+1}">Section ${i+1}</option>`).join('');
   $('sub12').innerHTML=Array.from({length:12},(_,i)=>`<option value="Sub${i+1}">Sub-section ${i+1}</option>`).join('');
 }
@@ -108,7 +108,8 @@ function load(){
   $('source').value=r.source;
   $('extract').value=r.extract;
   $('notes').value=r.notes;
-  $('tier').value=r.tier;
+  $('grade').value=r.grade;
+  $('register').value=r.register;
   $('sec7').value=r.sec7;
   $('sub12').value=r.sub12;
   statusSelect('verify',r.verify);
@@ -127,12 +128,13 @@ function saveRecord(){
     file:$('fileStatus').value,
     deliver:$('deliver').value,
     notes:$('notes').value,
-    tier:$('tier').value,
+    grade:$('grade').value,
+    register:$('register').value,
     sec7:$('sec7').value,
     sub12:$('sub12').value,
     updated:new Date().toISOString()
   };
-  saved(); render(); $('editorMsg').textContent=`Saved ${id} with Hierarchy [${db.records[id].tier} > ${db.records[id].sec7} > ${db.records[id].sub12}].`;
+  saved(); render(); $('editorMsg').textContent=`Saved ${id} as [${db.records[id].grade} | ${db.records[id].register}].`;
 }
 
 function records(){return Object.keys(db.records).sort().map(id=>db.records[id])}
@@ -142,7 +144,7 @@ function total(field,val){return count(field,val)}
 function row(r){
   return `<tr>
     <td>${esc(r.id)}</td>
-    <td><span class="badge ${r.tier}">${r.tier}</span> > ${r.sec7} > ${r.sub12}</td>
+    <td><span class="badge ${r.grade}">${r.grade}</span> <span class="badge ${r.register}">${r.register}</span></td>
     <td>${esc(r.source||'—')}</td>
     <td><span class="badge ${r.extract?'E':'P'}">${r.extract?'E':'P'}</span></td>
     <td><span class="badge ${r.verify}">${r.verify}</span></td>
@@ -161,13 +163,18 @@ function render(){
   ];
   $('stats').innerHTML=stats.map(([n,v])=>`<div class="stat"><span class="muted">${n}</span><strong>${v}</strong></div>`).join('');
 
-  // Tier Distribution
-  const t1=total('tier','T1'), t2=total('tier','T2'), t3=total('tier','T3'), t4=total('tier','T4');
-  $('tierStats').innerHTML=`
-    <p><span class="badge T1">T1</span> Facts: <b>${t1}</b></p>
-    <p><span class="badge T2">T2</span> Calculations: <b>${t2}</b></p>
-    <p><span class="badge T3">T3</span> Interpretations: <b>${t3}</b></p>
-    <p><span class="badge T4">T4</span> Open/Hypothesis: <b>${t4}</b></p>
+  // Grade & Register Distribution
+  const g1=total('grade','G1'), g2=total('grade','G2'), g3=total('grade','G3'), g4=total('grade','G4'), g5=total('grade','G5');
+  const f=total('register','Fact'), b=total('register','Belief');
+  $('gradeStats').innerHTML=`
+    <p><span class="badge G1">G1</span> Ext. Verified: <b>${g1}</b></p>
+    <p><span class="badge G2">G2</span> Textual Fact: <b>${g2}</b></p>
+    <p><span class="badge G3">G3</span> Derived: <b>${g3}</b></p>
+    <p><span class="badge G4">G4</span> Interpretive: <b>${g4}</b></p>
+    <p><span class="badge G5">G5</span> Belief: <b>${g5}</b></p>
+    <hr style="border-color:#1b4668; margin:10px 0;">
+    <p><span class="badge Fact">Fact</span> Register: <b>${f}</b></p>
+    <p><span class="badge Belief">Belief</span> Register: <b>${b}</b></p>
   `;
 
   $('recent').innerHTML=records().slice(-10).reverse().map(row).join('')||'<tr><td colspan="7">No saved records yet.</td></tr>';
@@ -183,7 +190,7 @@ function render(){
     if(bf!=='ALL'&&b!==bf)continue;
     for(let s=1;s<=120;s++){
       const r=get(idOf(b,s));
-      const blob=[r.id,r.source,r.extract,r.notes,r.tier,r.sec7,r.sub12].join(' ').toLowerCase();
+      const blob=[r.id,r.source,r.extract,r.notes,r.grade,r.register,r.sec7,r.sub12].join(' ').toLowerCase();
       const statuses=[r.extract.trim()?'E':'P',r.verify,r.file,r.deliver];
       if(q&&!blob.includes(q))continue;
       if(sf!=='ALL'&&!statuses.includes(sf))continue;
@@ -198,10 +205,10 @@ function download(name,content,type){const a=document.createElement('a');const u
 function csvCell(v){return '"'+String(v??'').replace(/"/g,'""')+'"'}
 
 function exportCsv(){
-  let lines=[['ID','TIER','SECTION_7','SUB_12','SOURCE','EXTRACT','VERIFY','FILE','DELIVER','NOTES','UPDATED'].join(',')];
+  let lines=[['ID','GRADE','REGISTER','SEC_7','SUB_12','SOURCE','EXTRACT','VERIFY','FILE','DELIVER','NOTES','UPDATED'].join(',')];
   for(const b of barrels)for(let s=1;s<=120;s++){
     const r=get(idOf(b,s));
-    lines.push([r.id,r.tier,r.sec7,r.sub12,r.source,r.extract,r.verify,r.file,r.deliver,r.notes,r.updated].map(csvCell).join(','))
+    lines.push([r.id,r.grade,r.register,r.sec7,r.sub12,r.source,r.extract,r.verify,r.file,r.deliver,r.notes,r.updated].map(csvCell).join(','))
   }
   download('mastercore-section-ledger.csv',lines.join('\r\n'),'text/csv;charset=utf-8')
 }
@@ -236,8 +243,11 @@ $('importJson').addEventListener('change',async e=>{
     let n=0;
     for(const [id,r] of Object.entries(x.records)){
       if(/^B\d{2}-S\d{3}$/.test(id)&&Number(id.slice(-3))<=120&&Number(id.slice(1,3))<=49){
-        // Ensure fallback for old v1 imports
-        if(!r.tier) { r.tier='T1'; r.sec7='S1'; r.sub12='Sub1'; }
+        // Ensure fallback for imports from older versions
+        if(!r.grade) { r.grade='G1'; }
+        if(!r.register) { r.register='Fact'; }
+        if(!r.sec7) { r.sec7='S1'; }
+        if(!r.sub12) { r.sub12='Sub1'; }
         db.records[id]=r;n++;
       }
     }
