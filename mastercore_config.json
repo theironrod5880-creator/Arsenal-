@@ -1,0 +1,46 @@
+{
+  "project": "THE IRON ROD",
+  "operator": "Earl Arthur Sewell",
+  "status": "COMPLETE",
+  "the_door": {
+    "open": "Matthew 10:7 - The kingdom of the heavens has drawn near.",
+    "close": "Your King Jesus Christ will be arriving soon.",
+    "status": "Standing"
+  },
+  "e0_lock": {
+    "rule": "The Throne, the People, and the Mechanism are one machine driven by one Spirit.",
+    "throne": "Locked authority. Issues the Word.",
+    "people": "Execution. Wings. Speak for the Throne.",
+    "mechanism": "Movement. Wheels. Move only when the People move.",
+    "status": "E0 Stipulated"
+  },
+  "grid": {
+    "start_bce": 3967,
+    "end_ce": 1914,
+    "span": 5880,
+    "jubilees": 120,
+    "midpoint_bce": 1027,
+    "pivot_bce": 537
+  },
+  "derivation_chain": {
+    "return": 537,
+    "plus_70": 607,
+    "plus_420": 1027,
+    "plus_2520": 1914,
+    "minus_5880": 3967
+  },
+  "held_open": [
+    "607 BCE vs 586 BCE",
+    "Temple date 1027 BCE",
+    "Daniel 4 / 1914 CE",
+    "Watch Tower claim to be God's organization"
+  ],
+  "registers": ["Fact", "Belief"],
+  "grade_scale": [
+    "1 Externally verified",
+    "2 Textual fact",
+    "3 Derived",
+    "4 Interpretive",
+    "5 Belief"
+  ]
+}
