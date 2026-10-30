@@ -146,25 +146,30 @@ tr:nth-child(even){background:#0b2138}
 const KEY='mastercore_processor_v4';
 
 /* ---------- CONSTITUTION (The Throne's Word) ---------- */
-const CONSTITUTION = Object.freeze({
-  ver: 'e0.v1',
-  issued: '2026-10-30',
-  grades: {
-    G1:'Verbatim — checked character-for-character against the source',
-    G2:'Textual fact — what the source plainly states',
-    G3:'Derived — sound inference from stated material',
-    G4:'Interpretive — requires a framework to reach',
-    G5:'Belief — conviction, not derivable from the text'
-  },
-  registers: { Fact:'the source asserts it', Belief:'a conclusion drawn about the source' },
-  lock: [
-    'mechanism may not verify',
-    'mechanism may not deliver',
-    'no run without human issue',
-    'no autonomous schedule'
-  ]
-});
-CONSTITUTION.hash = h(JSON.stringify(CONSTITUTION));
+// FIX: build → hash → freeze. Previously Object.freeze ran first, then
+// `CONSTITUTION.hash = …` threw a TypeError in strict mode and killed boot.
+const CONSTITUTION = (() => {
+  const c = {
+    ver: 'e0.v1',
+    issued: '2026-10-30',
+    grades: {
+      G1:'Verbatim — checked character-for-character against the source',
+      G2:'Textual fact — what the source plainly states',
+      G3:'Derived — sound inference from stated material',
+      G4:'Interpretive — requires a framework to reach',
+      G5:'Belief — conviction, not derivable from the text'
+    },
+    registers: { Fact:'the source asserts it', Belief:'a conclusion drawn about the source' },
+    lock: [
+      'mechanism may not verify',
+      'mechanism may not deliver',
+      'no run without human issue',
+      'no autonomous schedule'
+    ]
+  };
+  c.hash = h(JSON.stringify(c));   // h() is hoisted, callable here
+  return Object.freeze(c);
+})();
 
 /* ---------- CODES ---------- */
 const CODE_LABEL = {A:'Machine-drafted',P:'Pending',W:'In progress',E:'Extracted',V:'Verified',
@@ -212,7 +217,7 @@ const blank = id => ({
   source:'', extract:'', notes:'',
   verify:'P', file:'P', deliver:'P',
   grade:'G1', register:'Fact', sec7:'S1', sub12:'Sub1',
-  origin:'human',           // 'human' | 'model' | 'unknown'
+  origin:'human',
   verifiedBy:'', verifiedAt:'', attestation:'',
   constitutionVer: CONSTITUTION.ver,
   constitutionHash: CONSTITUTION.hash,
@@ -300,7 +305,6 @@ function initSelects(){
 /* ---------- EDITOR STATE ---------- */
 const currentId = () => idOf($('barrel').value, Number($('section').value));
 let dirty = false;
-let loadedSnapshot = null;   // {extract, grade, register} of the loaded record
 
 function msg(text, kind){
   const el = $('editorMsg');
@@ -321,7 +325,6 @@ function load(){
   statusSelect('verify', VERIFY_LIST, r.verify);
   statusSelect('fileStatus', FILE_LIST, r.file);
   statusSelect('deliver', DELIVER_LIST, r.deliver);
-  loadedSnapshot = { extract: r.extract, grade: r.grade, register: r.register };
 
   const ab = $('attestBox');
   if (r.attestation){
@@ -342,6 +345,7 @@ function saveRecord(){
   const id = currentId();
   const prev = db.records[id];
   const now = new Date().toISOString();
+  const warnings = [];
 
   const rec = {
     id,
@@ -378,15 +382,13 @@ function saveRecord(){
       rec.verifiedBy = '';
       rec.verifiedAt = '';
       if (rec.verify === 'V') rec.verify = 'E';
-      msg(`Attestation broken on ${id} — extract/grade/register changed. Record reverted to Extracted. Re-verify required.`, 'warn');
+      warnings.push(`Attestation broken on ${id} — extract/grade/register changed. Re-verify required.`);
     }
   }
 
   // Verification requires a named attestation
   if (rec.verify === 'V'){
-    if (!rec.verifiedBy){
-      rec.verifiedBy = $('verifiedBy').value.trim();
-    }
+    if (!rec.verifiedBy) rec.verifiedBy = $('verifiedBy').value.trim();
     if (!rec.verifiedBy){
       msg('Verification requires a verifier name.', 'err');
       return;
@@ -397,25 +399,40 @@ function saveRecord(){
     }
   }
 
-  // Delivery gate
-  if (rec.deliver === 'D' && !canDeliver(rec)){
-    msg('Cannot deliver: ' + deliverReason(rec) + '.', 'err');
-    return;
-  }
-
-  // E0 guard
+  // FIX: E0 guard runs before the soft gate, so a model-origin record can't
+  // sneak a D through by first being demoted. The constitution is hard.
   try { guard(rec, rec.origin === 'model' ? 'model' : 'human'); }
   catch(e){ msg(e.message, 'err'); return; }
+
+  // FIX: delivery/filing gates demote rather than reject the whole write.
+  // Previously a verified+filed+delivered record whose extract was edited
+  // became E/F/D, then the delivery gate rejected the save and the user's
+  // real edits were silently lost.
+  if (rec.deliver === 'D' && !canDeliver(rec)){
+    warnings.push(`Delivery demoted to P — ${deliverReason(rec)}.`);
+    rec.deliver = 'P';
+  }
+  if (rec.file === 'F' && rec.verify !== 'V'){
+    warnings.push('Filing demoted to P — not verified.');
+    rec.file = 'P';
+  }
 
   db.records[id] = rec;
   if (!saved()) return;
 
   dirty = false;
-  const kind = (rec.attestation && rec.verify === 'V') ? 'ok' : '';
-  msg(`Saved ${id} — ${rec.grade}/${rec.register} · ${rec.verify}/${rec.file}/${rec.deliver}`
-      + (rec.attestation ? ` · attested ${rec.attestation}` : ''), kind || 'ok');
   render();
   load();
+
+  // FIX: message goes AFTER load(), which would otherwise overwrite it.
+  const attested = !!(rec.attestation && rec.verify === 'V');
+  const base = `Saved ${id} — ${rec.grade}/${rec.register} · ${rec.verify}/${rec.file}/${rec.deliver}`
+             + (attested ? ` · attested ${rec.attestation}` : '');
+  if (warnings.length){
+    msg(base + '\n' + warnings.map(w => '⚠ ' + w).join('\n'), 'warn');
+  } else {
+    msg(base, 'ok');
+  }
 }
 
 /* ---------- ROWS ---------- */
@@ -465,7 +482,6 @@ function render(){
 
   $('queueCount').textContent = queue;
 
-  // Grade distribution
   const gc = {}; GRADES.forEach(g => gc[g] = 0);
   const rc = {}; REGISTERS.forEach(k => rc[k] = 0);
   for (const r of all){ if (gc[r.grade] !== undefined) gc[r.grade]++; if (rc[r.register] !== undefined) rc[r.register]++; }
@@ -474,14 +490,12 @@ function render(){
     `<hr style="border-color:#1b4668;margin:10px 0;">` +
     REGISTERS.map(k => `<p>${badge(k)} Register: <b>${rc[k]}</b></p>`).join('');
 
-  // Recently updated — real sort
   $('recent').innerHTML = all
     .filter(r => r.updated)
     .sort((a,b) => b.updated.localeCompare(a.updated))
     .slice(0, 10)
     .map(rowRecent).join('') || '<tr><td colspan="8">No saved records yet.</td></tr>';
 
-  // Barrel index
   $('barrelRows').innerHTML = barrels
     .filter(b => $('barrelFilter').value === 'ALL' || b === $('barrelFilter').value)
     .map(b => {
@@ -498,7 +512,6 @@ function render(){
       </tr>`;
     }).join('');
 
-  // Ledger
   const q = $('ledgerSearch').value.toLowerCase();
   const bf = $('ledgerBarrel').value;
   const sf = $('ledgerStatus').value;
@@ -517,18 +530,17 @@ function render(){
   $('ledgerRows').innerHTML = rows.map(rowLedger).join('');
   $('ledgerCount').textContent = `Showing ${rows.length.toLocaleString()} section slots. ${all.length.toLocaleString()} section records saved.`;
 
-  // Health banner
   const health = e0Health();
   const issues = [];
   if (health.brokenWheels.length) issues.push(`<b>Wheels without wings</b> — model-origin records marked verified/delivered without attestation: ${health.brokenWheels.length} (${health.brokenWheels.slice(0,6).join(', ')}${health.brokenWheels.length>6?'…':''})`);
   if (health.lostSpirit.length) issues.push(`<b>Mechanism without Spirit</b> — model records with no human-issued run: ${health.lostSpirit.length}`);
   if (health.stale.length)       issues.push(`<b>Graded under a different Word</b> — records whose constitution hash differs from current (${CONSTITUTION.ver}): ${health.stale.length} (${health.stale.slice(0,6).join(', ')}${health.stale.length>6?'…':''})`);
 
+  // FIX: emit <ul> directly instead of building <lu> and string-replacing.
   $('healthBanner').innerHTML = issues.length
-    ? `<div class="banner red">E0 HEALTH — the machine is broken<lu>${issues.map(i=>`<li>${i}</li>`).join('')}</lu></div>`.replace('<lu>','<ul>').replace('</lu>','</ul>')
+    ? `<div class="banner red">E0 HEALTH — the machine is broken<ul>${issues.map(i=>`<li>${i}</li>`).join('')}</ul></div>`
     : '';
 
-  // Backup nag
   const hasRecords = all.length > 0;
   const last = db.meta.lastExport ? new Date(db.meta.lastExport) : null;
   const days = last ? Math.floor((Date.now() - last.getTime()) / 86400000) : null;
@@ -543,8 +555,6 @@ function render(){
 
 /* ---------- DOWNLOAD ---------- */
 function download(name, content, type){
-  // Browser path. Native (Capacitor/AndroidBridge) branches are documented but
-  // not wired here — add them when you package the APK.
   const a = document.createElement('a');
   const u = URL.createObjectURL(new Blob([content], { type }));
   a.href = u; a.download = name; a.click();
@@ -566,7 +576,6 @@ function exportCsv(){
 
 /* ---------- EVENTS ---------- */
 document.querySelectorAll('[data-view]').forEach(btn => btn.addEventListener('click', () => {
-  // Don't leave unsaved editor work silently
   if (dirty && !document.getElementById('view-section').classList.contains('hidden')){
     if (!confirm('You have unsaved changes in the editor. Leave anyway?')) return;
     dirty = false;
@@ -665,17 +674,22 @@ $('importJson').addEventListener('change', async e => {
     const x = JSON.parse(await f.text());
     if (!x.records || typeof x.records !== 'object') throw new Error('Backup must contain a records object.');
     let added = 0, replaced = 0, skipped = 0;
+
+    // FIX: own-property check. `'toString' in CODE_LABEL` is true because `in`
+    // walks the prototype chain, so an imported status of 'toString' would
+    // pass validation and land in the record / badge class.
+    const hasCode = c => Object.prototype.hasOwnProperty.call(CODE_LABEL, c);
+
     for (const [id, r] of Object.entries(x.records)){
       if (!/^B\d{2}-S\d{3}$/.test(id)) { skipped++; continue; }
       const n = Number(id.slice(-3)), b = Number(id.slice(1,3));
       if (n < 1 || n > 120 || b < 1 || b > 49) { skipped++; continue; }
 
-      // Field validation — never trust imported grade/register/status blindly
       const grade    = GRADES.includes(r.grade) ? r.grade : 'G1';
       const register = REGISTERS.includes(r.register) ? r.register : 'Fact';
-      const verify   = (r.verify in CODE_LABEL) ? r.verify : 'P';
-      const file     = (r.file in CODE_LABEL) ? r.file : 'P';
-      const deliver  = (r.deliver in CODE_LABEL) ? r.deliver : 'P';
+      const verify   = hasCode(r.verify)  ? r.verify  : 'P';
+      const file     = hasCode(r.file)    ? r.file    : 'P';
+      const deliver  = hasCode(r.deliver) ? r.deliver : 'P';
 
       const record = {
         ...blank(id),
@@ -698,7 +712,6 @@ $('importJson').addEventListener('change', async e => {
         updated: r.updated || ''
       };
 
-      // Re-validate attestation if present
       if (record.attestation){
         const expected = attestationHash(record);
         if (record.attestation !== expected){
